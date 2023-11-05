@@ -14,10 +14,10 @@ To assess the security posture, I conducted a 24-hour measurement of security me
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+![Architecture Diagram](https://docs.google.com/drawings/d/e/2PACX-1vTNDFS8mB600xQscPBKko1Tq8E8sACNRO2T0oPj6CeiY4HSXI5roLc4xC1uFquIbHi2Sv1adJCrqJSm/pub?w=960&h=720)
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+![Architecture Diagram](https://docs.google.com/drawings/d/e/2PACX-1vRj1nqSGR_cL78m8iJbB0kGA5emIsScTkkZlEb3vQGTP97XR3ib8_1qSeBRHkoS-dDelEU0gL2HwCVV/pub?w=960&h=720)
 
 The architecture of the mini honeynet in Azure consists of the following components:
 
