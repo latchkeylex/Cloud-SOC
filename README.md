@@ -31,25 +31,15 @@ To assess the security posture, I conducted a 24-hour measurement of security me
 
 ## Architecture Before Hardening / Security Controls
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet for bad actors to discover. The purpose for doing so was to attract bad actors and observe their attack patterns. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for private endpoints.
 
 ![Architecture Diagram](https://docs.google.com/drawings/d/e/2PACX-1vTNDFS8mB600xQscPBKko1Tq8E8sACNRO2T0oPj6CeiY4HSXI5roLc4xC1uFquIbHi2Sv1adJCrqJSm/pub?w=960&h=720)
 
 ## Architecture After Hardening / Security Controls
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+For the "AFTER" metrics of the project, security enhancements were made to comply with NIST SP 800-53 Rev4 SC-7(3) Access Points requirements. These measures involved strengthening Network Security Groups (NSGs) to allow access only to authorized public IP addresses for virtual machines, configuring built-in Azure firewalls to restrict unauthorized access and minimize attack surface, and replacing Public Endpoints with Private Endpoints for Azure Key Vault and Storage Containers, ensuring limited access to sensitive resources within the virtual network and not from the public internet.
 
 ![Architecture Diagram](https://docs.google.com/drawings/d/e/2PACX-1vRj1nqSGR_cL78m8iJbB0kGA5emIsScTkkZlEb3vQGTP97XR3ib8_1qSeBRHkoS-dDelEU0gL2HwCVV/pub?w=960&h=720)
-
-The architecture of the mini honeynet in Azure consists of the following components:
-
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 kali linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
 
 ## Attack Maps Before Hardening / Security Controls
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
