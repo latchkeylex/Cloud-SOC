@@ -13,10 +13,32 @@ To assess the security posture, I conducted a 24-hour measurement of security me
 - SecurityIncident (Incidents created by Sentinel)
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
+
+## Technologies, Azure Components, and Regulations Employed
+- Azure Virtual Network (VNet)
+- Azure Network Security Groups (NSG)
+- Virtual Machines (2 Windows VMs, 1 Linux VM)
+- Log Analytics Workspace with Kusto Query Language (KQL) Queries
+- Azure Key Vault for Secure Secrets Management
+- Azure Storage Account for Data Storage
+- Microsoft Sentinel for Security Information and Event Management (SIEM)
+- Microsoft Defender for Cloud to Protect Cloud Resources
+- Windows Remote Desktop for Remote Access
+- Command Line Interface (CLI) for System Management
+- PowerShell for Automation and Configuration Management
+- [NIST SP 800-53 Revision 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) for Security Controls
+- [NIST SP 800-61 Revision 2](https://www.nist.gov/privacy-framework/nist-sp-800-61) for Incident Handling Guidance
+
 ## Architecture Before Hardening / Security Controls
+
+For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+
 ![Architecture Diagram](https://docs.google.com/drawings/d/e/2PACX-1vTNDFS8mB600xQscPBKko1Tq8E8sACNRO2T0oPj6CeiY4HSXI5roLc4xC1uFquIbHi2Sv1adJCrqJSm/pub?w=960&h=720)
 
 ## Architecture After Hardening / Security Controls
+
+For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+
 ![Architecture Diagram](https://docs.google.com/drawings/d/e/2PACX-1vRj1nqSGR_cL78m8iJbB0kGA5emIsScTkkZlEb3vQGTP97XR3ib8_1qSeBRHkoS-dDelEU0gL2HwCVV/pub?w=960&h=720)
 
 The architecture of the mini honeynet in Azure consists of the following components:
@@ -28,10 +50,6 @@ The architecture of the mini honeynet in Azure consists of the following compone
 - Azure Key Vault
 - Azure Storage Account
 - Microsoft Sentinel
-
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
-
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
